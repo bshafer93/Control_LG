@@ -6,4 +6,4 @@ MyLG = LGC7('/dev/ttyUSB1',9600)
 
 
 
-MyLG.OFF()
+MyLG.ON()
