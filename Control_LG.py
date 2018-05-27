@@ -12,10 +12,10 @@ class LGC7:
     def OFF(self):
             self.Send_Cmd('ka 00 00')
             #Discrete off
-            
+
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-        ser = serial.Serial(self.BD_PORT,timeout = 2)
+        ser = serial.Serial(self.BD_PORT,timeout = 10)
        
         ser.baudrate = self.BD_BAUDRATE
         full_cmd = bytes(cmd + "\r",'utf-8')
