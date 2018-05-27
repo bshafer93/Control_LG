@@ -18,21 +18,15 @@ class LGC7:
         ser = serial.Serial(self.BD_PORT,timeout = 3 )
        
         ser.baudrate = self.BD_BAUDRATE
-        full_cmd = bytes(cmd + "\n",'utf-8')
-        ser.write(full_cmd)
+        full_cmd = bytes(cmd + "\r",'utf-8')
+        ser.write(b'ka 00 01\r')
         self.Receive_Data(ser)
 
     def Receive_Data(self,ser):
-        data = ser.read(4096)
+        data = ser.read(10)
         print ("received message:", data)
         ser.close()
 
 
-    def power_on(self):
-        self.run_command('k', 'a', 1, 1)
 
-    def run_command(self, c1, c2, set_id, data):
-        ser = serial.Serial(self.BD_PORT,timeout = 3 )
-       
-        ser.baudrate = self.BD_BAUDRATE
-        ser.write(bytes('%c%c %x %x\n' % (c1, c2, set_id, data), 'utf-8'))
+
