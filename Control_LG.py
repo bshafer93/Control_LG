@@ -18,7 +18,7 @@ class LGC7:
         ser = serial.Serial(self.BD_PORT,timeout = 10)
        
         ser.baudrate = self.BD_BAUDRATE
-        full_cmd = bytes(cmd + "\r",'utf-8')
+        full_cmd = bytes(cmd + "\r")
         ser.write(full_cmd)
         self.Receive_Data(ser)
 
