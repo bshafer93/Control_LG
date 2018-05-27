@@ -15,16 +15,16 @@ class LGC7:
 
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-        ser = serial.Serial(self.BD_PORT,timeout = 10)
+        ser = serial.Serial(self.BD_PORT,timeout = )
        
         ser.baudrate = self.BD_BAUDRATE
-        full_cmd = bytes(cmd + "\r",'ascii')
+        full_cmd = bytes(cmd + "\r",'utf-8')
         ser.write(full_cmd)
         self.Receive_Data(ser)
 
     def Receive_Data(self,ser):
         data = ser.read(4096)
-        print ("received message:", data)
+        print ("received message:", data.decode('unicode_escape'))
         ser.close()
 
 
