@@ -7,7 +7,7 @@ class LGC7:
         self.BD_BAUDRATE = BD_BAUDRATE
 
     def ON(self):
-            self.Send_Cmd('ka 00 01')
+            self.Send_Cmd('ka 0 1')
             #Discrete on
     def OFF(self):
             self.Send_Cmd('ka 00 00')
@@ -28,5 +28,11 @@ class LGC7:
         ser.close()
 
 
+    def power_on(self):
+        self.run_command('k', 'a', 1, 1)
 
-
+    def run_command(self, c1, c2, set_id, data):
+        ser = serial.Serial(self.BD_PORT,timeout = 3 )
+       
+        ser.baudrate = self.BD_BAUDRATE
+        ser.write(bytes('%c%c %x %x\n' % (c1, c2, set_id, data), 'utf-8'))
