@@ -15,7 +15,7 @@ class LGC7:
 
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-        ser = serial.Serial(self.BD_PORT,timeout = )
+        ser = serial.Serial(self.BD_PORT,timeout = 3 )
        
         ser.baudrate = self.BD_BAUDRATE
         full_cmd = bytes(cmd + "\r",'utf-8')
