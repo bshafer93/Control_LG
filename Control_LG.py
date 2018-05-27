@@ -24,7 +24,7 @@ class LGC7:
 
     def Receive_Data(self,ser):
         data = ser.read(4096)
-        print ("received message:", data.decode('ascii'))
+        print ("received message:", data)
         ser.close()
 
 
