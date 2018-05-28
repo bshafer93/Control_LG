@@ -24,7 +24,7 @@ class LGC7:
 
     def Receive_Data(self,ser):
         data = ser.read(10)
-        print ("received message:", data.decode('unicode-escape'))
+        print ("received message:", data)
         ser.close()
 
 
