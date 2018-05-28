@@ -23,7 +23,7 @@ class LGC7:
         self.Receive_Data(ser)
 
     def Receive_Data(self,ser):
-        data = ser.read(10)
+        data = ser.read(4096)
         print ("received message:", data)
         ser.close()
 
