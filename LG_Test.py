@@ -2,4 +2,6 @@ from Control_LG import LGC7
 
 import time
 
-print (bytes("ka 00 00" + "\r"))
+MyLG = LGC7("/dev/ttyUSB1",9600)
+
+MyLG.OFF()
