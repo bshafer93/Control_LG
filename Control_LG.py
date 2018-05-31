@@ -7,12 +7,14 @@ class LGC7:
         self.BD_BAUDRATE = BD_BAUDRATE
 
     def ON(self):
-            self.Send_Cmd('ka 01 01')
+            self.Send_Cmd('ka 00 01')
             #Discrete on
     def OFF(self):
-            self.Send_Cmd('ka 01 00')
+            self.Send_Cmd('ka 00 00')
             #Discrete off
-
+    def PowerStatus(self):
+            self.Send_Cmd('ka 00 FF')
+            #Discrete off
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
         ser = serial.Serial(self.BD_PORT,timeout = 10 )
