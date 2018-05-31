@@ -17,9 +17,10 @@ class LGC7:
             #Discrete off
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-        ser = serial.Serial(self.BD_PORT,timeout = 10 )
+        ser = serial.Serial(self.BD_PORT,timeout = 2,bytesize=EIGHTBITS,parity=PARITY_NONE,stopbits=STOPBITS_ONE )
        
         ser.baudrate = self.BD_BAUDRATE
+        ser.bau
         full_cmd = bytes(cmd + "\n",'utf-8')
         print(full_cmd)
         ser.write(full_cmd)
