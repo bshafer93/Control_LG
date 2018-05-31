@@ -19,6 +19,7 @@ class LGC7:
        
         ser.baudrate = self.BD_BAUDRATE
         full_cmd = bytes(cmd + "\r",'utf-8')
+        print(full_cmd)
         ser.write(full_cmd)
         self.Receive_Data(ser)
 
