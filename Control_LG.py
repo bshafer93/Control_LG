@@ -7,7 +7,7 @@ class LGC7:
         self.BD_BAUDRATE = BD_BAUDRATE
 
     def ON(self):
-            self.Send_Cmd('ka 01 1')
+            self.Send_Cmd('ka 01 01')
             #Discrete on
     def OFF(self):
             self.Send_Cmd('ka 01 00')
@@ -15,7 +15,7 @@ class LGC7:
 
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-        ser = serial.Serial(self.BD_PORT,timeout = 3 )
+        ser = serial.Serial(self.BD_PORT,timeout = 10 )
        
         ser.baudrate = self.BD_BAUDRATE
         full_cmd = bytes(cmd + "\r",'utf-8')
@@ -23,7 +23,7 @@ class LGC7:
         self.Receive_Data(ser)
 
     def Receive_Data(self,ser):
-        data = ser.read(10)
+        data = ser.read(4608)
         print ("received message:", data.decode('unicode-escape'))
         ser.close()
 
