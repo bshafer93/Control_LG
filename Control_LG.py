@@ -1,5 +1,5 @@
 import os
-
+import subprocess
 class LGC7:
 
     def __init__(self):
@@ -16,5 +16,7 @@ class LGC7:
             #Discrete off
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-            os.system(cmd)
+          process =  subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+          stdout = process.communicate()[0]
+          print ('STDOUT:{}'.format(stdout))
 
