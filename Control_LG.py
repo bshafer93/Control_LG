@@ -16,7 +16,13 @@ class LGC7:
             #Discrete off
     ### Query COMMANDS    
     def Send_Cmd(self,cmd):
-          process =  subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
-          stdout = process.communicate()[0]
-          print ('STDOUT:{}'.format(stdout))
-
+        process =  subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+        stdout = process.communicate()[0]
+        stdout = str(stdout)
+        print ('STDOUT:{}'.format(stdout))
+        if "on" in stdout:
+                print("Tv is on...")
+        
+        if "off" in stdout:
+                print("Tv is off...")
+        
