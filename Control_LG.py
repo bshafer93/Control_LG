@@ -1,5 +1,5 @@
-import serial 
 import os
+
 class LGC7:
 
     def __init__(self):
