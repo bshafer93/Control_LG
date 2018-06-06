@@ -1,7 +1,6 @@
-from Control_LG import LGC7
+import cec
 
-import time
+cec.init()
 
-MyLG = LGC7("/dev/ttyUSB1",9600)
-
-MyLG.ON()
+tv = cec.Device(cec.CECDEVICE_TV)
+tv.power_on()
