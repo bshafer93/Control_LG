@@ -1,6 +1,3 @@
-import cec
+from Control_LG import LGC7
 
-cec.init()
-
-tv = cec.Device(cec.CECDEVICE_TV)
-tv.power_on()
+mylg = LGC7()
